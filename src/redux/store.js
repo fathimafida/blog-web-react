@@ -1,3 +1,4 @@
+import { configureStore } from "@reduxjs/toolkit";
 import blogSlices from "./slices/blogSlices";
 
 
@@ -6,6 +7,6 @@ const store = configureStore({
       blog:blogSlices
     },
   
-    
+    devTools: true,
 });
 export default store

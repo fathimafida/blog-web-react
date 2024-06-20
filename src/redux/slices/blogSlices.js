@@ -1,7 +1,8 @@
 
 import {  createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { act } from "react";
+
+
 const initialState ={
     blogLists :[],
     isError :false,
@@ -9,8 +10,9 @@ const initialState ={
     errorMessage:""
 }
 
-export const getBlogList = createAsyncThunk ( async () => {
+export const getBlogList = createAsyncThunk ("blog/getBlogList", async () => {
     const resp = await axios.get("http://localhost:3000/blogs")
+    return resp.data
 })
 const blogSlice = createSlice({
     name:"blog",
@@ -19,17 +21,19 @@ const blogSlice = createSlice({
     
     },
     extraReducers:(builder)=>{
-        builder.addCase(getBlogList.pending,(state,action)=>{
+        builder.addCase(getBlogList.pending,(state)=>{
             state.isLoading =true
+            
         })
-        addCase(getBlogList.fulfilled,(state,action)=>{
-         state.blogLists =action.payload
-         state.isLoading =false
-        })
-        addCase((getBlogList.rejected),(state,action)=>{
-            state.isError =true
+        .addCase(getBlogList.fulfilled,(state,action)=>{
             state.isLoading =false
-            state.errorMessage =action.error.payload
+         state.blogLists = action.payload
+        
+        })
+       .addCase(getBlogList.rejected,(state,action)=>{
+            state.isLoading =false
+             state.isError = true
+            state.errorMessage = action.error.message
         })
 
 }})
