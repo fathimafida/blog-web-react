@@ -1,0 +1,22 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Flutter",
+      "description": "Flutter is a cross-platform sdk for building innovative applications.",
+      "author": "Fida"
+    },
+    {
+        "id": 1,
+        "title": "React",
+        "description": "React allows building encapsulated components that manage their own state, then compose them to make complex UIs"
+, "author":"Henna"
+    },
+    {
+        "id": 1,
+        "title": "Web Development",
+        "description": "Web Development Techniques and frameworks (like Bootstrap) ensure web applications work on various devices and screen sizes.",
+        "author": "Hiba" 
+    }
+  ]
+}
