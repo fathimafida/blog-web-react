@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import BlogCard from './components/BlogCard'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBlogList } from '../redux/slices/blogSlices'
@@ -19,7 +19,7 @@ const Blogs = () => {
   }
   return (
     <div className='flex flex-wrap justify-center gap-4'>
-     {blogState.blogLists.map((blog,index)=>{
+     {blogState.blogLists.map((blog)=>{
       return <BlogCard 
        key={blog.id} blog={blog}/>
       
