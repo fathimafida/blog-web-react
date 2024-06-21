@@ -16,7 +16,7 @@ const BlogDetailPage = () => {
 
     if (!selectedBlog) {
         return (
-          <h1 className="w-50 h-50 text-xl  font-bold justify-center flex">
+          <h1 className="w-50 h-50 text-xl text-white  font-bold justify-center flex">
             Loading...
           </h1>
         );
