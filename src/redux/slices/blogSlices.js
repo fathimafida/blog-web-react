@@ -7,7 +7,8 @@ const initialState ={
     blogLists :[],
     isError :false,
     isLoading:false,
-    errorMessage:""
+    errorMessage: "",
+    selectedBlog:null
 }
 
 export const getBlogList = createAsyncThunk ("blog/getBlogList", async () => {
@@ -30,6 +31,10 @@ export const editBlog = createAsyncThunk("blog/editBlog",async(data)=>{
     return resp.data
 })
 
+export const getBlogDetails = createAsyncThunk("blog/getDetails", async (id) => {
+    const resp = await axios.get(`http://localhost:3000/blogs/${id}/`)
+    return resp.data
+})
 const blogSlice = createSlice({
     name:"blog",
     initialState:initialState,
@@ -80,6 +85,18 @@ const blogSlice = createSlice({
             state.isLoading =false
         })
         .addCase(editBlog.rejected,(state,action)=>{
+            state.isLoading =false
+             state.isError = true
+            state.errorMessage = action.error.message
+        })
+        .addCase(getBlogDetails.pending,(state)=>{
+            state.isLoading =true
+        })
+        .addCase(getBlogDetails.fulfilled,(state,action)=>{
+            state.isLoading = false
+            state.selectedBlog = action.payload
+        })
+        .addCase(getBlogDetails.rejected,(state,action)=>{
             state.isLoading =false
              state.isError = true
             state.errorMessage = action.error.message
