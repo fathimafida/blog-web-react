@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import propTypes from 'prop-types'
 
 
 const BlogCard = (
@@ -15,5 +15,12 @@ const BlogCard = (
       
   )
 }
-
+BlogCard.propTypes = {
+  blog:{
+    title:propTypes.string,
+    description:propTypes.string,
+    author:propTypes.string,
+    id:propTypes.number
+  }
+}
 export default BlogCard

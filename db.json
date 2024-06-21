@@ -35,6 +35,24 @@
         "title": "Python",
         "description": "Python is a versatile high-level programming language used for a wide range of applications.",
         "author": "Guido  Van Rossum"
-    }
+    },
+    {
+      "id": 4,
+      "title": "CSS",
+      "description": "CSS is a stylesheet language used for describing the look and formatting of a document written in HTML.",
+      "author": "Hakon Wium Lie"
+  },
+  {
+      "id": 5,
+      "title": "JavaScript",
+      "description": "JavaScript is a high-level, dynamic, interactive language used for creating web pages with interactive elements.",
+      "author": "Brendan Eich"
+  },
+  {
+      "id": 6,
+      "title": "Python",
+      "description": "Python is a versatile high-level programming language used for a wide range of applications.",
+      "author": "Guido  Van Rossum"
+  }
   ]
 }
