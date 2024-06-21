@@ -5,6 +5,7 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, } from "@nextu
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createBlog, getBlogList } from "../redux/slices/blogSlices";
+import { toast } from "sonner";
 
 
 const NavBar = () => {
@@ -41,9 +42,14 @@ const NavBar = () => {
                   const description = e.target.description.value
                   const author = e.target.author.value
                   onOpenChange(false)
-              await  dispatch(createBlog({title
-                :title,description:description,author:author}))
-              await  dispatch(getBlogList())
+              try {
+                await  dispatch(createBlog({title
+                  :title,description:description,author:author})).unwrap()
+                await  dispatch(getBlogList())
+                toast.success("Blog added successfully")
+              } catch (error) {
+                toast.error("Failed to add blog")
+              }
 
                 }}>
                 <Input label="Title" bordered name="title"></Input>

@@ -41,12 +41,6 @@
       "title": "JavaScript",
       "description": "JavaScript is a high-level, dynamic, interactive language used for creating web pages with interactive elements.",
       "author": "Brendan Eich"
-    },
-    {
-      "id": 9,
-      "title": "C",
-      "description": "Python is a versatile high-level programming language used for a wide range of applications.",
-      "author": "Guido  Van Rossum"
     }
   ]
 }

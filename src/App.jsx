@@ -6,7 +6,8 @@ import Blogs from './Pages/Blogs'
 
 const App = () => {
   return (
-    <>
+    <> 
+      
        <Toaster/>
     <div className='bg-gradient-to-br from-slate-900 to-slate-700 min-h-screen'>
     <NavBar/>
