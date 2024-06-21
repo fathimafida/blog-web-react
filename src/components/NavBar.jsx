@@ -3,11 +3,14 @@ import { Input } from "@nextui-org/input";
 
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, } from "@nextui-org/modal";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createBlog, getBlogList } from "../redux/slices/blogSlices";
 
 
 const NavBar = () => {
 
   const[isOpen,onOpenChange] =useState(false)
+  const dispatch =useDispatch()
   return (
     
        
@@ -29,18 +32,30 @@ const NavBar = () => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Add Blog</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1 font-sans font-bold">Add Blog</ModalHeader>
               <ModalBody>
-               <form> <Input label="Title" bordered></Input>
-                <Input label="Description" bordered></Input>
-                <Input label="Author" bordered></Input></form>
+               <form  id="add-blog"  className="flex flex-col gap-2" onSubmit={
+               async (e)=>{
+                  e.preventDefault()
+                  const title = e.target.title.value
+                  const description = e.target.description.value
+                  const author = e.target.author.value
+                  onOpenChange(false)
+              await  dispatch(createBlog({title
+                :title,description:description,author:author}))
+              await  dispatch(getBlogList())
+
+                }}>
+                <Input label="Title" bordered name="title"></Input>
+                <Input label="Description" bordered name="description"></Input>
+                <Input label="Author" bordered name="author"></Input></form>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
+                <Button color="primary" type="submit" form="add-blog">
+                  Add Blog
                 </Button>
               </ModalFooter>
             </>
