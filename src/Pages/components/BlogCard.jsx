@@ -30,16 +30,16 @@ const BlogCard = (
       <p className='text-lg font-serif'>{blog.description}</p>
       
       <p className='text-xl font-serif  font-semibold '>Author:{blog.author}</p>
-      <br/>
- <div className='flex  justify-end  gap-2 '> 
-      <Button className='hover:scale-125  text-2xl' onClick={()=>{
+      
+ <div className='flex  justify-end  gap-2  mt-3'> 
+      <Button className='hover:scale-100  text-2xl ' onClick={()=>{
         onOpenChange(true)
 
       }}
       ><MdEditSquare/></Button>
 
 
-    <Button className='hover:scale-125  text-2xl '  onClick={async()=>{
+    <Button className='hover:scale-100  text-2xl bg-red-400 '  onClick={async()=>{
       onOpenChange(true)
       }}><MdDelete/></Button>
       </div>

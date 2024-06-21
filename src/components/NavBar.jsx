@@ -25,7 +25,7 @@ const NavBar = () => {
               <h1 className='text-2xl font-bold font-serif text-white hover:scale-95'>Services</h1>
           </div>
           <div className='flex items-center justify-end gap-6'>
-              <Button color="primary" variant="shadow" onClick={()=>onOpenChange(true)}>Add Blog</Button>
+              <Button className="text-xl font-bold" color="primary" variant="shadow" onClick={()=>onOpenChange(true)}>Add Blog</Button>
               <img className='border rounded-full border-white w-12 h-12' src='https://a.storyblok.com/f/191576/1200x800/faa88c639f/round_profil_picture_before_.webp'></img>
           </div>
    
