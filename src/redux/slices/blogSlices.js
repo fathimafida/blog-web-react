@@ -48,7 +48,7 @@ const blogSlice = createSlice({
         })
         .addCase(getBlogList.fulfilled,(state,action)=>{
             state.isLoading =false
-         state.blogLists = action.payload
+         state.blogLists = action.payload.slice().reverse()
         
         })
        .addCase(getBlogList.rejected,(state,action)=>{
@@ -60,7 +60,8 @@ const blogSlice = createSlice({
             state.isLoading =true
         })
         .addCase(createBlog.fulfilled,(state)=>{
-            state.isLoading =false
+            state.isLoading = false
+             
         })
         .addCase(createBlog.rejected,(state,action)=>{
             state.isLoading =false

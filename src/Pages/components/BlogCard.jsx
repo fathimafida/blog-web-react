@@ -21,7 +21,8 @@ import { useNavigate } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
   const dispatch = useDispatch();
-  const [isOpen, onOpenChange] = useState(false);
+  const [isEditOpen, onEditOpenChange] = useState(false);
+  const [isDeleteOpen, onDeleteOpenChange] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="flex  flex-col p-3  border rounded-2xl m-6 shadow-xl  transition-all ease duration-1000   hover:scale-125 hover:rotate-2 bg-gradient-to-tr from-blue-100 to-blue-400   "
@@ -42,7 +43,8 @@ const BlogCard = ({ blog }) => {
         <Button
           className="hover:scale-100  text-2xl "
           onClick={() => {
-            onOpenChange(true);
+        
+            onEditOpenChange(true);
           }}
         >
           <MdEditSquare />
@@ -51,14 +53,15 @@ const BlogCard = ({ blog }) => {
         <Button
           className="hover:scale-100  text-2xl bg-red-400 "
           onClick={async () => {
-            onOpenChange(true);
+          
+            onDeleteOpenChange(true);
           }}
         >
           <MdDelete />
         </Button>
       </div>
 
-      <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal backdrop="blur" isOpen={isEditOpen} onOpenChange={onEditOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -75,7 +78,7 @@ const BlogCard = ({ blog }) => {
                     const description = e.target.description.value;
                     const author = e.target.author.value;
 
-                    onOpenChange(false);
+                    onEditOpenChange(false);
                     try {
                       await dispatch(
                         editBlog({
@@ -117,14 +120,16 @@ const BlogCard = ({ blog }) => {
                   Close
                 </Button>
                 <Button color="primary" type="submit" form="edit-blog">
-                  UpdateBlog
+                  Update Blog
                 </Button>
               </ModalFooter>
             </>
           )}
         </ModalContent>
+
+
       </Modal>
-      <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal backdrop="blur" isOpen={isDeleteOpen} onOpenChange={onDeleteOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -145,7 +150,7 @@ const BlogCard = ({ blog }) => {
                   type="submit"
                   form="delete-blog"
                   onClick={async () => {
-                    onOpenChange(false);
+                    onDeleteOpenChange(false);
 
                     try {
                       await dispatch(deleteBlog(blog.id)).unwrap();
