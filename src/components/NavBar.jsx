@@ -79,7 +79,7 @@ const NavBar = () => {
                     }
                   }}
                 >
-                  <Input label="Title" bordered name="title"></Input>
+                  <Input label="Title" bordered name="title" isRequired min={3} max={10}></Input>
                   <Input
                     label="Description"
                     bordered

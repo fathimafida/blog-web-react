@@ -74,6 +74,7 @@ const BlogCard = ({ blog }) => {
                   className="flex flex-col gap-2"
                   onSubmit={async (e) => {
                     e.preventDefault();
+  
                     const title = e.target.title.value;
                     const description = e.target.description.value;
                     const author = e.target.author.value;
