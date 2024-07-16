@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Blogs from "./Pages/Blogs";
 import BlogDetailPage from "./Pages/components/BlogDetailPage";
 import { Route, Routes } from "react-router-dom";
+import AuthScreen from "./Pages/auth/AuthScreen";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetailPage />} />
+          <Route path="/auth" element={<AuthScreen />} />
         </Routes>
       </div>
     </>
