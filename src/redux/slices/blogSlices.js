@@ -12,7 +12,7 @@ const initialState ={
 }
 
 export const getBlogList = createAsyncThunk ("blog/getBlogList", async () => {
-    const resp = await axios.get("http://localhost:3000/blogs/")
+    const resp = await axios.get("http://blog_livewire.test/api/blogs/")
     return resp.data
 })
 

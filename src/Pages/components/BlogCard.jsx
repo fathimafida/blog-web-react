@@ -24,6 +24,7 @@ const BlogCard = ({ blog }) => {
   const [isEditOpen, onEditOpenChange] = useState(false);
   const [isDeleteOpen, onDeleteOpenChange] = useState(false);
   const navigate = useNavigate();
+  
   return (
     <div className="flex  flex-col p-3  border rounded-2xl m-6 shadow-xl  transition-all ease duration-1000   hover:scale-125 hover:rotate-2 bg-gradient-to-tr from-blue-100 to-blue-400   "
       onClick={
